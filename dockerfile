@@ -10,7 +10,8 @@ LABEL MAINTAINER="https://github.com/dbsqp/"
 RUN apt-get update && apt-get install -y \
     ruby-full \
     --no-install-recommends && \
-    rm -rf /var/lib/apt/lists/* 
+    rm -rf /var/lib/apt/lists/*
+RUN gem install bundler
 
 # Environment vars
 ENV LANG=C.UTF-8
