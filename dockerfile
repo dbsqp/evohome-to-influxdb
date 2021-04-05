@@ -11,7 +11,10 @@ RUN apt-get update && apt-get install -y \
     ruby-full \
     --no-install-recommends && \
     rm -rf /var/lib/apt/lists/*
-RUN gem install bundler
+RUN gem install httparty -v 0.15.6
+RUN gem install evohome -v 1.0.0
+RUN gem install influxdb-client -v 1.12.1
+
 
 # Environment vars
 ENV LANG=C.UTF-8
