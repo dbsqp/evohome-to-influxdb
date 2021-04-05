@@ -13,9 +13,8 @@ RUN apt-get update && apt-get install -y \
     rm -rf /var/lib/apt/lists/*
 RUN gem install httparty -v 0.15.6 && \
     gem install evohome -v 1.0.0 && \
-    gem install influxdb-client -v 1.12.1 && \
-    gem install bundler -v 2.2.15
-
+    gem install influxdb-client -v 1.12.1
+    
 # Environment vars
 ENV LANG=C.UTF-8
 
