@@ -8,7 +8,7 @@ LABEL MAINTAINER="https://github.com/dbsqp/"
 
 # Setup external package-sources
 RUN apt-get update && apt-get install -y \
-    ruby \
+    ruby-full \
     --no-install-recommends && \
     rm -rf /var/lib/apt/lists/* 
 
