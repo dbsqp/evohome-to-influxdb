@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y \
 
 # Copy files
 ADD Gemfile /
-ADD evohome2influxdb.rb /
+ADD evohome2influx.rb /
 ADD get.sh /
 
 # Run
