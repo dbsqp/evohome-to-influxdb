@@ -4,7 +4,7 @@ while :
 do
   date
   echo "Start Loop"
-  ruby evohome2influxdb.rb
+  ruby evohome2influx.rb
   RET=$?
   if [ ${RET} -ne 0 ];
   then
