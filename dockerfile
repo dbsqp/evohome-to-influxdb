@@ -20,7 +20,7 @@ RUN gem install httparty -v 0.15.6 && \
 ENV LANG=C.UTF-8
 
 # Copy files
-COPY Gemfile evohome2influx.rb get.sh
+COPY evohome2influx.rb get.sh
 
 # Run
 CMD ["/bin/bash","/get.sh"]
