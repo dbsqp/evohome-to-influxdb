@@ -7,7 +7,8 @@ FROM ubuntu:latest
 LABEL MAINTAINER="https://github.com/dbsqp/"
 
 # Setup external package-sources
-RUN apt-get update && apt-get install -y \
+RUN export LANG=C.UTF-8 && \
+    apt-get update && apt-get install -y \
     ruby-full \
     --no-install-recommends && \
     rm -rf /var/lib/apt/lists/*
