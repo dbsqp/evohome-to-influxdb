@@ -1,9 +1,5 @@
 #!/usr/local/bin/ruby -w
 
-require "rubygems"
-require "bundler"
-Bundler.require(:default)
-
 require "evohome"
 require 'influxdb-client'
 require 'httparty'
