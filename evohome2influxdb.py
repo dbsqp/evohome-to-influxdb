@@ -86,7 +86,8 @@ devices = raw[0]['devices']
 for d in devices:
 
     host=d['name']
-    hardware=d['deviceID']
+    v=d['deviceID']
+    hardware=':'.join(v[i:i+2] for i in range(0,12,2))
     temperature=d['thermostat']['indoorTemperature']
     setpoint=d['thermostat']['changeableValues']['heatSetpoint']['value']
 
