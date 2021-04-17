@@ -29,7 +29,7 @@ influxdb2_host=os.getenv('INFLUXDB2_HOST', "localhost")
 influxdb2_port=int(os.getenv('INFLUXDB2_PORT', "8086"))
 influxdb2_org=os.getenv('INFLUXDB2_ORG', "org")
 influxdb2_token=os.getenv('INFLUXDB2_TOKEN', "token")
-influxdb2_bucket=os.getenv('INFLUXDB2_BUCKET', "netatmo")
+influxdb2_bucket=os.getenv('INFLUXDB2_BUCKET', "DEV")
 
 
 # hard encoded environment variables
@@ -47,6 +47,10 @@ payload = {'username': evohome_username, 'password': evohome_password, 'Applicat
 r = requests.post(url, data=payload)
 response = r.json()
 
+if debug:
+    print ( "  raw API: " )
+    print (json.dumps(response,indent=4))
+
 sessionID = response["sessionId"]
 userID = response["userInfo"]["userID"]
 
@@ -54,8 +58,6 @@ url = "https://tccna.honeywell.com/WebAPI/api/locations?userId="+str(userID)+"&a
 header = {'Content-Type': 'application/json', 'sessionID': sessionID}
 
 if debug:
-    print ( "  raw API: " )
-    print (json.dumps(response,indent=4))
     print ( "sessionID: "+sessionID )
     print ( "   userID: "+str(userID) )
     print ( "      URL: "+url )
