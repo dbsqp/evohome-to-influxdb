@@ -12,9 +12,9 @@ $ docker run -d \
  -e EVOHOME_PASSWORD="<evohome password>" \
  -e INFLUXDB2_HOST="<INFLUXDBv2 SERVER>" \
  -e INFLUXDB2_PORT="8086" \
- -e INFLUXDB2_ORG="" \
+ -e INFLUXDB2_ORG="Home" \
  -e INFLUXDB2_TOKEN="" \
- -e INFLUXDB2_BUCKET="" \
+ -e INFLUXDB2_BUCKET="DEV" \
  --name "evohome-influxdbv2" \
 dbsqp/evohome-influxdbv2:latest
 ```
