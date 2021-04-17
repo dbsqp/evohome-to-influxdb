@@ -21,7 +21,7 @@ end
 puts "debug="+DEBUG if debug
 
 delay = 60
-
+count = 1
 
 # evohome envionment variables
 evohome_username = ENV["EVOHOME_EMAIL"]
@@ -52,35 +52,37 @@ client = InfluxDB2::Client.new(influxdb2_url, influxdb2_token, bucket: influxdb2
 
 loop do
   puts "Write Points" if debug
-	write_api = client.create_write_api
-	
-	evohome.thermostats.map do |thermostat|
+  write_api = client.create_write_api
 
-		point = InfluxDB2::Point.new(name: 'Temperature')
-                        .add_tag('host', thermostat.name)
-                        .add_tag('source', 'Evohome')
-                        .add_field('value', thermostat.temperature)
-		puts point.to_line_protocol	if debug
-		write_api.write(data: point)
+  evohome.thermostats.map do |thermostat|
 
-		point = InfluxDB2::Point.new(name: 'Temperature-Setpoint')
-                        .add_tag('host', thermostat.name)
-                        .add_tag('source', 'Evohome')
-                        .add_field('value', thermostat.temperature_setpoint)
-		puts point.to_line_protocol if debug
-		write_api.write(data: point)
-    
+    point = InfluxDB2::Point.new(name: 'Temperature')
+      .add_tag('host', thermostat.name)
+      .add_tag('source', 'Evohome')
+      .add_field('value', thermostat.temperature)
+    puts point.to_line_protocol) if debug
+    write_api.write(data: point)
+
+    point = InfluxDB2::Point.new(name: 'Temperature-Setpoint')
+      .add_tag('host', thermostat.name)
+      .add_tag('source', 'Evohome')
+      .add_field('value', thermostat.temperature_setpoint)
+    puts point.to_line_protocol if debug
+    write_api.write(data: point)
   end
-  puts 'DONE get'
+  
+  puts 'DONE get #'+count.to_s
+  puts "START wait: "+delay.to_s+" s"
 
-  puts "START wait: "+delay.to_s+" s"	
-  print "START wait: "+delay.to_s+" s"  if debug
-	togo = delay
-	while togo > 0
-                print togo.to_s+'..' if debug
-  	        togo = togo - 5
-                sleep 5
-	end
+  puts "wait: "+delay.to_s+" s" if debug
+  togo = delay
+
+  while togo > 0
+    print togo.to_s+'..' if debug
+    togo = togo - 5
+    sleep 5
+  end
   puts 'DONE wait'
+  count = count + 1
 
 end
