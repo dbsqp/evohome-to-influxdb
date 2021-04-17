@@ -7,20 +7,24 @@ FROM ubuntu:latest
 LABEL MAINTAINER="https://github.com/dbsqp/"
 
 # Setup external package-sources
-RUN export LANG=C.UTF-8 && \
-    apt-get update && apt-get install -y \
-    ruby-full \
+RUN apt-get update && apt-get install -y \
+    python3 \
+    python3-dev \
+    python3-setuptools \
+    python3-pip \
+    python3-virtualenv \
     --no-install-recommends && \
-    rm -rf /var/lib/apt/lists/*
-RUN gem install httparty -v 0.15.6 && \
-    gem install evohome -v 1.0.0 && \
-    gem install influxdb-client -v 1.12.1
-    
+    rm -rf /var/lib/apt/lists/* 
+
+# RUN pip install setuptools
+RUN pip3 install pytz influxdb-client requests
+
 # Environment vars
-ENV LANG=C.UTF-8
+ENV PYTHONIOENCODING=utf-8
 
 # Copy files
-COPY evohome2influx.rb get.sh
+ADD evohome2influxdb.py /
+ADD get.sh /
 
 # Run
 CMD ["/bin/bash","/get.sh"]
