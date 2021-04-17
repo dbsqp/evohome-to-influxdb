@@ -33,16 +33,6 @@ influxdb2_bucket=os.getenv('INFLUXDB2_BUCKET', "netatmo")
 
 
 # hard encoded environment variables
-evohome_username = "m.parkinson@mac.com" # total connect
-evohome_password = "doU,FxjUufMG4iY,GsYC2Y" # total connect
-evohome_application_id = "91db1612-73fd-4500-91b2-e63b069b185c" #from internet
-influxdb2_host = "10.0.0.10"
-influxdb2_port = "8086"
-influxdb2_org = "Home"
-influxdb2_bucket = "DEV6"
-influxdb2_token = "WYfX6nOfy7yAyv9_q9cuwANJbGA3YhYzOt1vPsovBOkrdn5Rj7M-yxKzRT-Fvx7zSY1FA6uIkpEZotkl5BzDbg=="
-debug = True
-debug = False
 
 
 # report debug status
