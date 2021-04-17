@@ -71,15 +71,15 @@ loop do
 		write_api.write(data: point)
     
   end
-  puts 'DONE'
+  puts 'DONE get'
 
-  print "Wait: " if debug
+  print "START wait: "+delay.to_s+" s"
 	togo = delay
 	while togo > 0
-		print togo.to_s+'..' if debug
-  	togo = togo - 5
-    sleep 5
+                print togo.to_s+'..' if debug
+  	        togo = togo - 5
+                sleep 5
 	end
-  puts 'DONE'
+  puts 'DONE wait'
 
 end
