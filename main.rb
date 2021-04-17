@@ -60,7 +60,7 @@ loop do
       .add_tag('host', thermostat.name)
       .add_tag('source', 'Evohome')
       .add_field('value', thermostat.temperature)
-    puts point.to_line_protocol) if debug
+    puts point.to_line_protocol if debug
     write_api.write(data: point)
 
     point = InfluxDB2::Point.new(name: 'Temperature-Setpoint')
