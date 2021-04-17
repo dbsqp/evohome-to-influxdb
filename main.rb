@@ -41,6 +41,7 @@ influxdb2_url = "http://" + influxdb2_host + ":" + influxdb2_port.to_s
 
 # evohome
 evohome = Evohome.new(username: evohome_username, password: evohome_password, application_id: evohome_application_id)
+evohome.connect!
 
 
 # influxDBv2
@@ -51,9 +52,8 @@ client = InfluxDB2::Client.new(influxdb2_url, influxdb2_token, bucket: influxdb2
 
 loop do
   puts "Write Points" if debug
-	evohome.connect!
 	write_api = client.create_write_api
-
+	
 	evohome.thermostats.map do |thermostat|
 
 		point = InfluxDB2::Point.new(name: 'Temperature')
