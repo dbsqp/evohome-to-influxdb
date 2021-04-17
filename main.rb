@@ -73,7 +73,8 @@ loop do
   end
   puts 'DONE get'
 
-  print "START wait: "+delay.to_s+" s"
+  puts "START wait: "+delay.to_s+" s"	
+  print "START wait: "+delay.to_s+" s"  if debug
 	togo = delay
 	while togo > 0
                 print togo.to_s+'..' if debug
