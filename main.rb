@@ -72,7 +72,7 @@ loop do
   end
   
   puts 'DONE get #'+count.to_s
-  puts "START wait: "+delay.to_s+" s"
+  puts "wait "+delay.to_s+" s"
 
   puts "wait: "+delay.to_s+" s" if debug
   togo = delay
