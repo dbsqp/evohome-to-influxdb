@@ -3,8 +3,8 @@
 while :
 do
   date
-  echo "Start Loop"
-  ruby evohome2influx.rb
+  echo "--- Start Call API"
+  python3 netatmo2influxdb.py
   RET=$?
   if [ ${RET} -ne 0 ];
   then
