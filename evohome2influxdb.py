@@ -21,14 +21,14 @@ else:
 # evohome envionment variables
 evohome_username=os.getenv('EVOHOME_EMAIL', "")
 evohome_password=os.getenv('EVOHOME_PASSWORD', "")
-evohome_application_id=os.getenv('EVOHOME_APP_ID',"")
+evohome_application_id=os.getenv('EVOHOME_APP_ID',"91db1612-73fd-4500-91b2-e63b069b185c")
 
 
 # influxDBv2 environment variables
 influxdb2_host=os.getenv('INFLUXDB2_HOST', "localhost")
 influxdb2_port=int(os.getenv('INFLUXDB2_PORT', "8086"))
-influxdb2_org=os.getenv('INFLUXDB2_ORG', "org")
-influxdb2_token=os.getenv('INFLUXDB2_TOKEN', "token")
+influxdb2_org=os.getenv('INFLUXDB2_ORG', "Home")
+influxdb2_token=os.getenv('INFLUXDB2_TOKEN', "")
 influxdb2_bucket=os.getenv('INFLUXDB2_BUCKET', "DEV")
 
 
