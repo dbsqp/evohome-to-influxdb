@@ -1,6 +1,6 @@
 ARG ARCH=
 
-# Pull base image
+# Pull base image 
 FROM ubuntu:latest
 
 # Labels
