@@ -7,8 +7,8 @@ Updated for InfluxDBv2 and python.
 ## How to run
 ```
 $ docker run -d \
- -e EVOHOME_APP_ID="<evohome API application id>" \
- -e EVOHOME_USERNAME="<evohome email>" \
+ -e EVOHOME_APP_ID="91db1612-73fd-4500-91b2-e63b069b185c" \
+ -e EVOHOME_EMAIL="<evohome email>" \
  -e EVOHOME_PASSWORD="<evohome password>" \
  -e INFLUXDB2_HOST="<INFLUXDBv2 SERVER>" \
  -e INFLUXDB2_PORT="8086" \
