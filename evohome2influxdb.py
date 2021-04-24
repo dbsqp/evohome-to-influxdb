@@ -89,6 +89,10 @@ for d in devices:
     v=str(d['deviceID'])
     hardware=':'.join(v[i:i+2] for i in range(0,8,2))
     temperature=d['thermostat']['indoorTemperature']
+    if temperature == '128':
+        if debug:
+            print ("Temperature Error (T=128)")
+        break
     setpoint=d['thermostat']['changeableValues']['heatSetpoint']['value']
 
     senddata={}
