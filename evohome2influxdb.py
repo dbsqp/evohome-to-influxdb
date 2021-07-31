@@ -104,23 +104,24 @@ for d in devices:
     senddata["tags"]["hardware"]=hardware
     senddata["fields"]={}
     senddata["fields"]["value"]=temperature
-    
+    senddata["fields"]["Setpoint"]=setpoint
+
     if debug:
         print ("INFLUX: "+influxdb2_bucket)
         print (json.dumps(senddata,indent=4))
     write_api.write(bucket=influxdb2_bucket, org=influxdb2_org, record=[senddata])
         
-    senddata["measurement"]="Temperature-Setpoint"
-    senddata["tags"]={}
-    senddata["tags"]["source"]="Evohome"
-    senddata["tags"]["host"]=host
-    senddata["tags"]["hardware"]=hardware
-    senddata["fields"]={}
-    senddata["fields"]["value"]=setpoint
+#    senddata["measurement"]="Temperature-Setpoint"
+#    senddata["tags"]={}
+#    senddata["tags"]["source"]="Evohome"
+#    senddata["tags"]["host"]=host
+#    senddata["tags"]["hardware"]=hardware
+#    senddata["fields"]={}
+#    senddata["fields"]["value"]=setpoint
     
-    if debug:
-        print ("INFLUX: "+influxdb2_bucket)
-        print (json.dumps(senddata,indent=4))
-    write_api.write(bucket=influxdb2_bucket, org=influxdb2_org, record=[senddata])
+#    if debug:
+#        print ("INFLUX: "+influxdb2_bucket)
+#        print (json.dumps(senddata,indent=4))
+#    write_api.write(bucket=influxdb2_bucket, org=influxdb2_org, record=[senddata])
 
     print ( host.ljust(11)+" = "+str(temperature)+" cf. "+str(setpoint))
