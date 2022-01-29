@@ -97,14 +97,14 @@ for d in devices:
 
     senddata={}
         
-    senddata["measurement"]="Temperature"
+    senddata["measurement"]="temperature"
     senddata["tags"]={}
     senddata["tags"]["source"]="Evohome"
     senddata["tags"]["host"]=host
     senddata["tags"]["hardware"]=hardware
     senddata["fields"]={}
     senddata["fields"]["value"]=temperature
-    senddata["fields"]["Setpoint"]=setpoint
+    senddata["fields"]["setpoint"]=setpoint
 
     if debug:
         print ("INFLUX: "+influxdb2_bucket)
