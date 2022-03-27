@@ -103,7 +103,7 @@ for d in devices:
     senddata["tags"]["host"]=host
     senddata["tags"]["hardware"]=hardware
     senddata["fields"]={}
-    senddata["fields"]["value"]=temperature
+    senddata["fields"]["temp"]=temperature
     senddata["fields"]["setpoint"]=setpoint
 
     if debug:
