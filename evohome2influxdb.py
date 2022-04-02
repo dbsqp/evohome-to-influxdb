@@ -101,7 +101,7 @@ for d in devices:
     senddata["tags"]={}
     senddata["tags"]["source"]="docker evohome-influxdbv2"
     senddata["tags"]["origin"]="Evohome"
-    senddata["tags"]["host"]=host
+    senddata["tags"]["sensor"]=host
     senddata["tags"]["hardware"]=hardware
     senddata["fields"]={}
     senddata["fields"]["temp"]=temperature
