@@ -1,10 +1,11 @@
 # evohome-influxdbv2
 
-This is a docker container that pushes data from the Honeywell Evohome API to InfluxDB. Based on work of jankeesvw [evohome-to-influxdb] (https://github.com/jankeesvw/evohome-to-influxdb).
+This is a docker image that pulls data from the Honeywell Evohome API and pushes to InfluxDB. Based on work of jankeesvw [evohome-to-influxdb] (https://github.com/jankeesvw/evohome-to-influxdb).
 
 Updated for InfluxDBv2 and python.
 
 ## How to run
+https://hub.docker.com/repository/docker/dbsqp/evohome-influxdbv2
 ```
 $ docker run -d \
  -e EVOHOME_APP_ID="91db1612-73fd-4500-91b2-e63b069b185c" \
