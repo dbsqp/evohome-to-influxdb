@@ -20,6 +20,12 @@ $ docker run -d \
 dbsqp/evohome-influxdbv2:latest
 ```
 
+# Options
+```
+ -e INFLUXDB2_SSL="True" \
+ -e DEBUG="True" \
+```
+
 ## Evohome Application ID
 
 Unsure where and how to register for an API access for Honeywell Home | Total Connect Comfort. However using the following ID found online works combined with user email and password used to access https://international.mytotalconnectcomfort.com.
