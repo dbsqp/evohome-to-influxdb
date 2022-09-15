@@ -77,9 +77,9 @@ if debug:
 
 # influxDBv2
 if influxdb2_ssl_str:
-    influxdb2_url="http://" + influxdb2_host + ":" + str(influxdb2_port)
-else:
     influxdb2_url="https://" + influxdb2_host + ":" + str(influxdb2_port)
+else:
+    influxdb2_url="http://" + influxdb2_host + ":" + str(influxdb2_port)
 
 if debug:
     print ( "influxdb: "+influxdb2_url+" bucket: "+influxdb2_bucket )
