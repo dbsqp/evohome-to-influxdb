@@ -31,6 +31,11 @@ influxdb2_org=os.getenv('INFLUXDB2_ORG', "Home")
 influxdb2_token=os.getenv('INFLUXDB2_TOKEN', "")
 influxdb2_bucket=os.getenv('INFLUXDB2_BUCKET', "DEV")
 
+influxdb2_ssl_str=os.getenv('INFLUXDB2_SSL', "False")
+if influxdb2_ssl_str is not None:
+    influxdb2_ssl = influxdb2_ssl_str.lower() == "true"
+else:
+    influxdb2_ssl = False
 
 # hard encoded environment variables
 
@@ -71,10 +76,13 @@ if debug:
 
 
 # influxDBv2
-influxdb2_url="http://" + influxdb2_host + ":" + str(influxdb2_port)
+is influxdb2_ssl_str:
+    influxdb2_url="http://" + influxdb2_host + ":" + str(influxdb2_port)
+else:
+    influxdb2_url="https://" + influxdb2_host + ":" + str(influxdb2_port)
+
 if debug:
-    print ( "influx: "+influxdb2_url )
-    print ( "bucket: "+influxdb2_bucket )
+    print ( "influxdb: "+influxdb2_url+" bucket: "+influxdb2_bucket )
 
 client = InfluxDBClient(url=influxdb2_url, token=influxdb2_token, org=influxdb2_org)
 write_api = client.write_api(write_options=SYNCHRONOUS)
