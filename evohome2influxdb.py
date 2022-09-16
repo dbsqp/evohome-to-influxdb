@@ -37,12 +37,29 @@ if influxdb2_ssl_str is not None:
 else:
     influxdb2_ssl = False
 
+influxdb2_ssl_verify_str=os.getenv('INFLUXDB2_SSL_VERIFY', "False")
+if influxdb2_ssl_verify_str is not None:
+    influxdb2_ssl_verify = influxdb2_ssl_verify_str.lower() == "true"
+else:
+    influxdb2_ssl_verify = False
+
 # hard encoded environment variables
 
 
 # report debug status
 if debug:
     print ( " debug: TRUE" )
+    
+if influxdb2_ssl:
+    print ( "   SSL: TRUE" )
+else:
+    print ( "   SSL: FALSE" )
+
+if influxdb2_ssl_verify:
+    print ( "verify: TRUE" )
+else:
+    print ( "verify: FALSE" )
+
 
 
 # evohome
@@ -84,7 +101,11 @@ else:
 if debug:
     print ( "influxdb: "+influxdb2_url+" bucket: "+influxdb2_bucket )
 
-client = InfluxDBClient(url=influxdb2_url, token=influxdb2_token, org=influxdb2_org)
+if influxdb2_ssl_verify:
+    client = InfluxDBClient(url=influxdb2_url, token=influxdb2_token, org=influxdb2_org, verify_ssl=True)
+else:
+    client = InfluxDBClient(url=influxdb2_url, token=influxdb2_token, org=influxdb2_org, verify_ssl=False)
+
 write_api = client.write_api(write_options=SYNCHRONOUS)
 
 
