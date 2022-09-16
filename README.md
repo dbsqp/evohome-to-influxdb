@@ -23,6 +23,7 @@ dbsqp/evohome-influxdbv2:latest
 # Options
 ```
  -e INFLUXDB2_SSL="True" \
+ -e INFLUXDB2_SSL_VERIFY="False" \
  -e DEBUG="True" \
 ```
 
